@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesManagement.Web", "MoviesManagement.Web\MoviesManagement.Web.csproj", "{19AEE77D-1815-460D-AF70-E5FB87EA8401}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesManagement.DataContract", "MoviesManagement.DataContract\MoviesManagement.DataContract.csproj", "{FD7E79AA-4090-4FA8-81F9-F79E2E29F8DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesManagement.DataAccess", "MoviesManagement.DataAccess\MoviesManagement.DataAccess.csproj", "{B8259452-C695-4078-A92F-BA29E2574FEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesManagement.Management", "MoviesManagement.Management\MoviesManagement.Management.csproj", "{8E11D4C1-55DA-486E-A74A-237D963161CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19AEE77D-1815-460D-AF70-E5FB87EA8401}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19AEE77D-1815-460D-AF70-E5FB87EA8401}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19AEE77D-1815-460D-AF70-E5FB87EA8401}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19AEE77D-1815-460D-AF70-E5FB87EA8401}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD7E79AA-4090-4FA8-81F9-F79E2E29F8DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD7E79AA-4090-4FA8-81F9-F79E2E29F8DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD7E79AA-4090-4FA8-81F9-F79E2E29F8DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD7E79AA-4090-4FA8-81F9-F79E2E29F8DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8259452-C695-4078-A92F-BA29E2574FEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8259452-C695-4078-A92F-BA29E2574FEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8259452-C695-4078-A92F-BA29E2574FEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8259452-C695-4078-A92F-BA29E2574FEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E11D4C1-55DA-486E-A74A-237D963161CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E11D4C1-55DA-486E-A74A-237D963161CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E11D4C1-55DA-486E-A74A-237D963161CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E11D4C1-55DA-486E-A74A-237D963161CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0F55919F-6211-48F8-8237-6436F4881E30}
+	EndGlobalSection
+EndGlobal
