@@ -5,7 +5,7 @@ namespace MoviesManagement.DataAccess.Infrastructure
 {
     public class MyDbContext : DbContext, IEFDbContext
     {
-        public MyDbContext()
+        public MyDbContext() : base("name=DefaultConnection")
         {
             
         }

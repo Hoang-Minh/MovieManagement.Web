@@ -49,18 +49,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Infrastructure\IEFDbContext.cs" />
-    <Compile Include="Migrations\201905052006474_InitModels.cs" />
-    <Compile Include="Migrations\201905052006474_InitModels.Designer.cs">
-      <DependentUpon>201905052006474_InitModels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905052023179_PopulateMembershipType.cs" />
-    <Compile Include="Migrations\201905052023179_PopulateMembershipType.Designer.cs">
-      <DependentUpon>201905052023179_PopulateMembershipType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905052026142_UpdateNameToMembershipTypes.cs" />
-    <Compile Include="Migrations\201905052026142_UpdateNameToMembershipTypes.Designer.cs">
-      <DependentUpon>201905052026142_UpdateNameToMembershipTypes.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Genre.cs" />
@@ -80,17 +68,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201905052006474_InitModels.resx">
-      <DependentUpon>201905052006474_InitModels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905052023179_PopulateMembershipType.resx">
-      <DependentUpon>201905052023179_PopulateMembershipType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905052026142_UpdateNameToMembershipTypes.resx">
-      <DependentUpon>201905052026142_UpdateNameToMembershipTypes.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
