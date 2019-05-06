@@ -49,6 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Infrastructure\IEFDbContext.cs" />
+    <Compile Include="Migrations\201905060702240_InitModels.cs" />
+    <Compile Include="Migrations\201905060702240_InitModels.Designer.cs">
+      <DependentUpon>201905060702240_InitModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Genre.cs" />
@@ -68,6 +72,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201905060702240_InitModels.resx">
+      <DependentUpon>201905060702240_InitModels.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
