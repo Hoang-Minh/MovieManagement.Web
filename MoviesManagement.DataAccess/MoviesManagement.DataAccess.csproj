@@ -58,6 +58,14 @@
     <Compile Include="Migrations\201905060705198_PopulateMembershipType.Designer.cs">
       <DependentUpon>201905060705198_PopulateMembershipType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905080651442_PopulateGenre.cs" />
+    <Compile Include="Migrations\201905080651442_PopulateGenre.Designer.cs">
+      <DependentUpon>201905080651442_PopulateGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905080653251_PopulateCustomer.cs" />
+    <Compile Include="Migrations\201905080653251_PopulateCustomer.Designer.cs">
+      <DependentUpon>201905080653251_PopulateCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Core\Domain\Customer.cs" />
     <Compile Include="Core\Domain\Genre.cs" />
@@ -88,6 +96,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905060705198_PopulateMembershipType.resx">
       <DependentUpon>201905060705198_PopulateMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905080651442_PopulateGenre.resx">
+      <DependentUpon>201905080651442_PopulateGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905080653251_PopulateCustomer.resx">
+      <DependentUpon>201905080653251_PopulateCustomer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
