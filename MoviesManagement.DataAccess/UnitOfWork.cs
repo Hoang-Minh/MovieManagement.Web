@@ -12,9 +12,12 @@ namespace MoviesManagement.DataAccess
         {
             _context = context;
             MembershipTypes = new MembershipTypeRepository(_context);
+            Customers = new CustomerRepository(_context);
         }
 
         public IMembershipTypeRepository MembershipTypes { get; }
+        public ICustomerRepository Customers { get; }
+
         public int Complete()
         {
             return _context.SaveChanges();
