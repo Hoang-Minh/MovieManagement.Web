@@ -5,14 +5,14 @@ namespace MoviesManagement.DataAccess.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<MoviesManagement.DataAccess.Infrastructure.MyDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<PlutoContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(MoviesManagement.DataAccess.Infrastructure.MyDbContext context)
+        protected override void Seed(PlutoContext context)
         {
             //  This method will be called after migrating to the latest version.
 

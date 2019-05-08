@@ -1,4 +1,4 @@
-﻿namespace MoviesManagement.DataAccess.Models
+﻿namespace MoviesManagement.DataAccess.Core.Domain
 {
     public class Genre
     {

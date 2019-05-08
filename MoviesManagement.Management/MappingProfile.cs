@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using MoviesManagement.DataAccess.Models;
+using MoviesManagement.DataAccess.Core.Domain;
 using MoviesManagement.DataContract;
 
 namespace MoviesManagement.Management

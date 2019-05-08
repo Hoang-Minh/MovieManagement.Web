@@ -1,22 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
+using MoviesManagement.DataContract;
 using MoviesManagement.Management.Controllers;
 
 namespace MoviesManagement.Web.Controllers.Api
 {
     public class MembershipTypesController : ApiController
     {
-        [HttpGet]
-        public IHttpActionResult GetMembershipTypes()
-        {
-            var membershipTypes = new MembershipTypeManagement();
-            var results = membershipTypes.GetMembershipType();
 
-            return Ok(results);
+        //GET /api/membershiptypes
+        public IEnumerable<MembershipTypeDto> GetMembershipTypes()
+        {
+            var membershipTypeManagement = new MembershipTypeManagement();
+            return membershipTypeManagement.GetMembershipType();
         }
     }
 }

@@ -8,8 +8,8 @@ namespace MoviesManagement.Web.Controllers
         // GET: MembershipTypes
         public void Index()
         {
-            var membershipTypes = new MembershipTypeManagement();
-            var results = membershipTypes.GetMembershipType();
+            //var membershipTypes = new MembershipTypeManagement();
+            //var results = membershipTypes.GetMembershipType();
 
             //return Ok(results);
             //return View();
