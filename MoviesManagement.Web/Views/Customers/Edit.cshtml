@@ -1,0 +1,24 @@
+﻿@model MoviesManagement.Web.ViewModels.CustomerViewModel
+
+@{
+    ViewBag.Title = @Model.Customer.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="page-header">
+        <h1>@Model.Customer.Name</h1>
+    </div>
+    <ul>
+        <li>
+            Date of Birth: <span>@Model.Customer.Birthdate.GetValueOrDefault().ToString("D")</span>
+        </li>
+        <li>
+            MembershipType: <span>@Model.Customer.MembershipType.Name</span>
+        </li>
+        <li>
+            Subscribed: <span>@Model.Customer.IsSubscribedToNewsletter</span> 
+        </li>
+    </ul>
+    <a class="btn btn-primary btn-sm" href="@Url.Action("Index", "Customers")">Back</a>
+</div>

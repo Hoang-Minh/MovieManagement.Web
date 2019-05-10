@@ -13,7 +13,7 @@ namespace MoviesManagement.DataAccess.Persistence.Repositories
 
         public IEnumerable<MembershipType> GetAllMembershipTypes()
         {
-            return PlutoContext.MembershipTypes.ToList();
+            return GetAll();
         }
 
         public PlutoContext PlutoContext => Context as PlutoContext;

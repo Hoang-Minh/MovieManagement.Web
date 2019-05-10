@@ -1,8 +1,64 @@
 ﻿@model dynamic
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "Customer List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>title</h2>
+<div class="container">
+    <div class="page-header">
+        <h1>Customer</h1>
+    </div>
+    <table id="customers" class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Discount Rate</th>
+            <th scope="col">Membership Type</th>
+        </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+    <a class="btn btn-primary btn-lg" href="@Url.Action("New", "Customers")">ADD CUSTOMER</a>
+</div>
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            $("#customers").DataTable({
+                ajax: {
+                    url: "/api/customers",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "id"
+                    },
+                    {
+                        data: "name",
+                        //render: function(data, type, customer) {
+                        //    return "<a href='/customers/edit/'" + customer.id + ">" + customer.name + "</a>";
+                        //}
+                        render: function (data, type, customer) {
+                            return "<a href='/customers/edit/" + customer.id + "'>" + customer.name + "</a>";
+                        }
+                    },
+                    {
+                        data: "membershipType.discountRate",
+                        render: function(data) {
+                            return data + " %";
+                        }
+                    },
+                    {
+                        data: "membershipType.name"
+                    }
+                ]
+            });
+
+        });
+    </script>
+}
+

@@ -9,6 +9,6 @@ namespace MoviesManagement.DataAccess.Core.Repositories
 {
     public interface ICustomerRepository : IRepository<Customer>
     {
-        IEnumerable<Customer> GetAllCustomers();
+        IEnumerable<Customer> GetAllCustomersWithMembershipTypes();
     }
 }

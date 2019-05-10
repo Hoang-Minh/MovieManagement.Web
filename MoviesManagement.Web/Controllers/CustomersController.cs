@@ -1,5 +1,8 @@
-﻿using System.Web.Mvc;
+﻿using System.Web.Http.Results;
+using System.Web.Mvc;
+using MoviesManagement.DataContract;
 using MoviesManagement.Management.Controllers;
+using MoviesManagement.Web.ViewModels;
 
 namespace MoviesManagement.Web.Controllers
 {
@@ -9,7 +12,55 @@ namespace MoviesManagement.Web.Controllers
         public ActionResult Index()
         {
             var customerManagement = new CustomerManagement();
-            return View(customerManagement.GetCustomers());
+            return View(customerManagement.GetCustomersWithMembershipTypes());
+        }
+
+        public ActionResult New()
+        {
+            var membershipTypeManagement = new MembershipTypeManagement();
+            var customer = new CustomFormViewModel
+            {
+                MembershipTypes = membershipTypeManagement.GetMembershipType()
+            };
+
+            return View("CustomerForm", customer);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var customerManagement = new CustomerManagement();
+            var customerDto = customerManagement.GetCustomerWithMembershipTypes(id);
+
+            var customerFormViewModel = new CustomerViewModel
+            {
+                Customer = customerDto
+            };
+
+            return View(customerFormViewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Save(CustomerDto customer)
+        {
+            if (!ModelState.IsValid)
+            {
+                return New();
+            }
+
+            //if (customer.Id == 0)
+            //{
+
+            //}
+            //var customerManagement = new CustomerManagement();
+            //var customerInDb = customerManagement.GetCustomerWithMembershipTypes(customer.Id);
+
+            //if (customerInDb == null)
+            //{
+            //    return HttpNotFound("No customer found");
+            //}
+
+            return New();
         }
     }
 }

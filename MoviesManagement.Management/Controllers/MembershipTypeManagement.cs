@@ -14,7 +14,7 @@ namespace MoviesManagement.Management.Controllers
             var unitOfWork = new UnitOfWork(new PlutoContext());
             return unitOfWork
                 .MembershipTypes
-                .GetAllMembershipTypes().ToList()
+                .GetAll().ToList()
                 .Select(mapper.Mapper.Map<MembershipType, MembershipTypeDto>);
         }
     }
