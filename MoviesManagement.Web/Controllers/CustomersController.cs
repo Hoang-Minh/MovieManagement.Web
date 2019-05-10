@@ -48,19 +48,22 @@ namespace MoviesManagement.Web.Controllers
                 return New();
             }
 
-            //if (customer.Id == 0)
-            //{
+            var customerManagement = new CustomerManagement();
+            if (customer.Id == 0)
+            {
+                customerManagement.Add(customer);
+            }
+            else
+            {
+                var customerInDb = customerManagement.GetCustomerWithMembershipTypes(customer.Id);
 
-            //}
-            //var customerManagement = new CustomerManagement();
-            //var customerInDb = customerManagement.GetCustomerWithMembershipTypes(customer.Id);
+                if (customerInDb == null)
+                {
+                    return HttpNotFound("No customer found");
+                }
+            }
 
-            //if (customerInDb == null)
-            //{
-            //    return HttpNotFound("No customer found");
-            //}
-
-            return New();
+            return RedirectToAction("Index", "Customers");
         }
     }
 }

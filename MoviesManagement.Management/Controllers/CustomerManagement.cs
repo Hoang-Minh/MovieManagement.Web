@@ -30,9 +30,13 @@ namespace MoviesManagement.Management.Controllers
             return customerDto;
         }
 
-        public void AddOrUpdate(CustomerDto customer)
+        public void Add(CustomerDto customerDto)
         {
-
+            var mapper = new MappingProfile();
+            var unitOfWork = new UnitOfWork(new PlutoContext());
+            var customer = mapper.Mapper.Map<CustomerDto, Customer>(customerDto);
+            unitOfWork.Customers.Add(customer);
+            unitOfWork.Complete();
         }
     }
 }
