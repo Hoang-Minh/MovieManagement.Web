@@ -11,6 +11,7 @@ namespace MoviesManagement.Web
             bundles.Add(new ScriptBundle("~/bundles/lib").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/bootstrap.js",
+                        "~/Scripts/toastr.js",
                         "~/Scripts/datatables/jquery.datatables.js",
                         "~/Scripts/datatables/datatables.bootstrap.js"));
 
@@ -28,6 +29,7 @@ namespace MoviesManagement.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-sandstone.css",
                       "~/Content/datatables/css/datatables.bootstrap.css",
+                      "~/Content/toastr.css",
                       "~/Content/site.css"));
         }
     }

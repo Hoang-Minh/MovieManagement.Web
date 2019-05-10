@@ -52,6 +52,7 @@ namespace MoviesManagement.Web.Controllers
             if (customer.Id == 0)
             {
                 customerManagement.Add(customer);
+                TempData["Success"] = "Success";
             }
             else
             {
