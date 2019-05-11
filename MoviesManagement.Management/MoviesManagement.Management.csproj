@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Controllers\CustomerManagement.cs" />
     <Compile Include="Controllers\MembershipTypeManagement.cs" />
+    <Compile Include="Controllers\MovieManagement.cs" />
     <Compile Include="MappingProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
