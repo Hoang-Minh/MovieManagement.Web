@@ -4,20 +4,56 @@
         Layout = "~/Views/Shared/_Layout.cshtml";
     }
 
-    <div class="container">
-        <div class="page-header">
-            <h1 class="text-center">Movies</h1>
-        </div>
-        <table id="movies" class="table table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Genre</th>
-                    <th scope="col">Release Date</th>
-                    <th scope="col">Number In Stock</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
+<div class="container">
+    <div class="page-header">
+        <h1 class="text-center">Movies</h1>
     </div>
+    <table id="movies" class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Release Date</th>
+            <th scope="col">Number In Stock</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            $("#movies").DataTable({
+                processing: true,
+                language: {
+                    processing: '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading..n.</span>'
+                },
+                ajax: {
+                    url: "/api/movies",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "id"
+                    },
+                    {
+                        data: "name"
+                    },
+                    {
+                        data: "genre.name"
+                    },
+                    {
+                        data: "releaseDate",
+                        render: function(data) {
+                            return moment(data).format("MMMM Do YYYY");
+                        }
+                    },
+                    {
+                        data: "numberInStock"
+                    }]
+            });
+        })
+    </script>
+}

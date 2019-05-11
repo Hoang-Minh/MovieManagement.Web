@@ -41,7 +41,6 @@ namespace MoviesManagement.Management.Controllers
 
         public void Delete(int id)
         {
-            var mapper = new MappingProfile();
             var unitOfWork = new UnitOfWork(new PlutoContext());
             var customerInDb = unitOfWork.Customers.Get(id);
             unitOfWork.Customers.Remove(customerInDb);

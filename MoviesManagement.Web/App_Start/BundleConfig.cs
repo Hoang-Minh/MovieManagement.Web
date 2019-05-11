@@ -14,6 +14,7 @@ namespace MoviesManagement.Web
                         "~/Scripts/toastr.js",
                         "~/Scripts/datatables/jquery.datatables.js",
                         "~/Scripts/bootbox.js",
+                        "~/Scripts/moment.js",
                         "~/Scripts/datatables/datatables.bootstrap.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
