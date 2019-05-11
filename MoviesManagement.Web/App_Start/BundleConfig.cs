@@ -13,6 +13,7 @@ namespace MoviesManagement.Web
                         "~/Scripts/bootstrap.js",
                         "~/Scripts/toastr.js",
                         "~/Scripts/datatables/jquery.datatables.js",
+                        "~/Scripts/bootbox.js",
                         "~/Scripts/datatables/datatables.bootstrap.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(

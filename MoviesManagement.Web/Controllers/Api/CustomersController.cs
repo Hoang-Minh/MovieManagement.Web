@@ -13,5 +13,12 @@ namespace MoviesManagement.Web.Controllers.Api
             var customerManagement = new CustomerManagement();
             return customerManagement.GetCustomersWithMembershipTypes();
         }
+
+        [HttpDelete]
+        public void Delete(int id)
+        {
+            var customerManagement = new CustomerManagement();
+            customerManagement.Delete(id);
+        }
     }
 }

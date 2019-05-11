@@ -49,6 +49,7 @@ namespace MoviesManagement.Web.Controllers
             }
 
             var customerManagement = new CustomerManagement();
+
             if (customer.Id == 0)
             {
                 customerManagement.Add(customer);
@@ -56,9 +57,9 @@ namespace MoviesManagement.Web.Controllers
             }
             else
             {
-                var customerInDb = customerManagement.GetCustomerWithMembershipTypes(customer.Id);
+                var customerDto = customerManagement.GetCustomerWithMembershipTypes(customer.Id);
 
-                if (customerInDb == null)
+                if (customerDto == null)
                 {
                     return HttpNotFound("No customer found");
                 }
@@ -66,5 +67,12 @@ namespace MoviesManagement.Web.Controllers
 
             return RedirectToAction("Index", "Customers");
         }
+
+        //[HttpDelete]
+        //public void Delete(int id)
+        //{
+        //    var customerManagement = new CustomerManagement();
+        //    customerManagement.Delete(id);
+        //}
     }
 }

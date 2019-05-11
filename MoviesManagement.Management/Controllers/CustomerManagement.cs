@@ -38,5 +38,14 @@ namespace MoviesManagement.Management.Controllers
             unitOfWork.Customers.Add(customer);
             unitOfWork.Complete();
         }
+
+        public void Delete(int id)
+        {
+            var mapper = new MappingProfile();
+            var unitOfWork = new UnitOfWork(new PlutoContext());
+            var customerInDb = unitOfWork.Customers.Get(id);
+            unitOfWork.Customers.Remove(customerInDb);
+            unitOfWork.Complete();
+        }
     }
 }

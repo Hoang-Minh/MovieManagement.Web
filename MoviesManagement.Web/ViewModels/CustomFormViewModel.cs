@@ -36,7 +36,6 @@ namespace MoviesManagement.Web.ViewModels
             Name = customer.Name;
             IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
             MembershipTypeId = customer.MembershipTypeId;
-            //MembershipTypes = customer.MembershipType;
             Birthdate = customer.Birthdate;
         }
     }
