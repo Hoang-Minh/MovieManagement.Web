@@ -10,6 +10,7 @@
     </div>
     @using (Html.BeginForm("Save", "Customers"))
     {
+        @Html.ValidationSummary(true, "Please fix the following error")
         <div class="form-group">
             @Html.LabelFor(x => x.Name)
             @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })

@@ -67,6 +67,10 @@
     <Compile Include="Migrations\201905080653251_PopulateCustomer.Designer.cs">
       <DependentUpon>201905080653251_PopulateCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905110641146_PopulateMovie.cs" />
+    <Compile Include="Migrations\201905110641146_PopulateMovie.Designer.cs">
+      <DependentUpon>201905110641146_PopulateMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Core\Domain\Customer.cs" />
     <Compile Include="Core\Domain\Genre.cs" />
@@ -104,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905080653251_PopulateCustomer.resx">
       <DependentUpon>201905080653251_PopulateCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905110641146_PopulateMovie.resx">
+      <DependentUpon>201905110641146_PopulateMovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

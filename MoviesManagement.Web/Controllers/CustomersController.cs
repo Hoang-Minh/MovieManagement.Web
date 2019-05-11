@@ -67,12 +67,5 @@ namespace MoviesManagement.Web.Controllers
 
             return RedirectToAction("Index", "Customers");
         }
-
-        //[HttpDelete]
-        //public void Delete(int id)
-        //{
-        //    var customerManagement = new CustomerManagement();
-        //    customerManagement.Delete(id);
-        //}
     }
 }

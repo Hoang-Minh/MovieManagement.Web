@@ -31,6 +31,7 @@ namespace MoviesManagement.Web
                       "~/Content/bootstrap-sandstone.css",
                       "~/Content/datatables/css/datatables.bootstrap.css",
                       "~/Content/toastr.css",
+                      "~/Content/font-awesome.css",
                       "~/Content/site.css"));
         }
     }

@@ -7,7 +7,7 @@
 
 <div class="container">
     <div class="page-header">
-        <h1>Customer</h1>
+        <h1 class="text-center">Customer</h1>
     </div>
     <table id="customers" class="table table-hover">
         <thead>
@@ -28,9 +28,13 @@
     <script>
         $(document).ready(function() {
             var table = $("#customers").DataTable({
+                processing: true,
                 ajax: {
                     url: "/api/customers",
                     dataSrc: ""
+                },
+                language: {
+                    processing: '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading..n.</span> '
                 },
                 columns: [
                     {
