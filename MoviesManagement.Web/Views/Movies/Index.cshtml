@@ -1,0 +1,23 @@
+﻿@model dynamic
+    @{
+        ViewBag.Title = "Movies";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <div class="container">
+        <div class="page-header">
+            <h1 class="text-center">Movies</h1>
+        </div>
+        <table id="movies" class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Genre</th>
+                    <th scope="col">Release Date</th>
+                    <th scope="col">Number In Stock</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>

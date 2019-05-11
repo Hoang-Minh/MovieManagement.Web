@@ -11,12 +11,6 @@ namespace MoviesManagement.DataAccess.Persistence.Repositories
         {
         }
 
-        public IEnumerable<MembershipType> GetAllMembershipTypes()
-        {
-            return GetAll();
-        }
-
         public PlutoContext PlutoContext => Context as PlutoContext;
-        
     }
 }
