@@ -15,6 +15,7 @@ namespace MoviesManagement.Web
                         "~/Scripts/datatables/jquery.datatables.js",
                         "~/Scripts/bootbox.js",
                         "~/Scripts/moment.js",
+                        "~/Scripts/typeahead.mvc.model.js",
                         "~/Scripts/datatables/datatables.bootstrap.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -33,6 +34,7 @@ namespace MoviesManagement.Web
                       "~/Content/datatables/css/datatables.bootstrap.css",
                       "~/Content/toastr.css",
                       "~/Content/font-awesome.css",
+                      "~/Content/typeahead.css",
                       "~/Content/site.css"));
         }
     }
