@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MoviesManagement.DataAccess;
 using MoviesManagement.DataAccess.Core.Domain;
@@ -14,7 +15,7 @@ namespace MoviesManagement.Management.Controllers
             var unitOfWork = new UnitOfWork(new PlutoContext());
             return unitOfWork
                 .Customers
-                .GetAllCustomersWithMembershipTypes().ToList()
+                .GetAllCustomersWithMembershipTypes()
                 .Select(mapper.Mapper.Map<Customer, CustomerDto>);
         }
 
@@ -45,6 +46,19 @@ namespace MoviesManagement.Management.Controllers
             var customerInDb = unitOfWork.Customers.Get(id);
             unitOfWork.Customers.Remove(customerInDb);
             unitOfWork.Complete();
+        }
+
+        public IEnumerable<CustomerDto> GetCustomersWithQuery(string query)
+        {
+            var mapper = new MappingProfile();
+            var unitOfWork = new UnitOfWork(new PlutoContext());
+
+            return unitOfWork
+                .Customers
+                .GetAllCustomersWithMembershipTypes()
+                .Where(x => (x.Name.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0))
+                .Select(mapper.Mapper.Map<Customer, CustomerDto>)
+                .Take(10);
         }
     }
 }

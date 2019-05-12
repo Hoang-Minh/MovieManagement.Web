@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using MoviesManagement.Management.Controllers;
-using MoviesManagement.Web.ViewModels;
+using MoviesManagement.Web.Models;
 
 namespace MoviesManagement.Web.Controllers
 {
@@ -13,18 +10,7 @@ namespace MoviesManagement.Web.Controllers
         // GET: Rentals
         public ActionResult Index()
         {
-            var customerManagement = new CustomerManagement();
-            var customers = customerManagement.GetCustomersWithMembershipTypes();
-            
-            var movieManagement = new MovieManagement();
-            var movies = movieManagement.GetAllMoviesWithGenres();
-            var rentalFormViewModel = new RentalFormViewModel
-            {
-                Customers = customers,
-                Movies = movies
-            };
-
-            return View(rentalFormViewModel);
+            return View();
         }
 
         [HttpPost]
@@ -32,6 +18,26 @@ namespace MoviesManagement.Web.Controllers
         {
 
             return View();
+        }
+
+        public ActionResult GetCustomers(string query)
+        {
+            List<Autocomplete> people = new List<Autocomplete>();
+
+            var customerManagement = new CustomerManagement();
+            var customers = customerManagement.GetCustomersWithQuery(query);
+
+            foreach (var customerDto in customers)
+            {
+                var person = new Autocomplete
+                {
+                    Id = customerDto.Id,
+                    Name = customerDto.Name
+                };
+                people.Add(person);
+            }
+
+            return Json(people, JsonRequestBehavior.AllowGet);
         }
     }
 }

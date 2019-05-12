@@ -1,4 +1,5 @@
-﻿@model dynamic
+﻿@model MoviesManagement.Web.ViewModels.RentalFormViewModel
+@using MoviesManagement.Web.Models
 @{
     ViewBag.Title = "Rental";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,24 +9,15 @@
     <div class="page-header">
         <h1>Rental</h1>
     </div>
-    <form id="newRental">
+    @using (Html.BeginForm("Save", "Rentals"))
+    {
+        @Html.ValidationSummary(true, "Please correct those following errors")
         <div class="form-group">
-            <label>Customer</label>
-            <div class="tt-container">
-                <input id="customer" name="customer" data-rule-validCustomer="true" required type="text" value="" class="form-control" autocomplete="off" />
+            @Html.LabelFor(model => model.Customer.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.AutocompleteFor(model => model.Customer.Name, model => model.Customer.Id, "GetCustomers", "Rentals", false)
+
             </div>
         </div>
-        <div class="form-group">
-            <label>Movie</label>
-            <div class="tt-container">
-                <input id="movie" name="movie" data-rule-validCustomer="true" required type="text" value="" class="form-control" autocomplete="off" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 col-sm-4">
-                <ul id="movies" class="list-group"></ul>
-            </div>
-        </div>
-        <a class="btn btn-primary btn-lg">Submit</a>
-    </form>
+    }
 </div>

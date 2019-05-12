@@ -5,7 +5,7 @@ namespace MoviesManagement.Web.ViewModels
 {
     public class RentalFormViewModel
     {
-        public IEnumerable<CustomerDto> Customers { get; set; }
-        public IEnumerable<MovieDto> Movies { get; set; }
+        public CustomerDto Customer { get; set; }
+        public MovieDto Movie { get; set; }
     }
 }
