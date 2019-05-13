@@ -27,7 +27,7 @@
         $(obj).typeahead({ highlight: true, minLength: 0, hint: true }, {
             name: 'autos', displayKey: 'value', source: autos.ttAdapter()
         }).on('typeahead:selected', function (obj, datum) {
-            onselected(obj, datum);
+            OnSelectedFunctionName(obj, datum);
         });
 
         if ($(obj).hasClass("focus")) {
@@ -39,6 +39,17 @@
     function onselected(obj, datum) {
         if (!obj || !obj.target || !datum) return;
         $('#' + jQuery(obj.target).data("autocomplete-id-field")).val(datum.id.toString());
+    }
+
+    function OnSelectedFunctionName(event, datum) {
+        //The default datum provided by this plugin has an id and name attribute
+        //var obj$ = $(event.target);
+        var test = {
+            id: datum.id.toString().toString(),
+            value: event.target.value
+        };
+        //Handle the selection value here//
+        console.log(test);
     }
 
     $('*[data-autocomplete-url]')

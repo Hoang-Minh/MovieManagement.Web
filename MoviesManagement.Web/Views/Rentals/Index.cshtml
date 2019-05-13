@@ -16,7 +16,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.CustomerName, htmlAttributes: new { @class = "text-center control-label col-sm-12 col-md-2" })
                 <div class="col-sm-12 col-md-10">
-                    @Html.AutocompleteFor(model => model.Customer.Name, model => model.Customer.Id, "GetCustomers", "Rentals", false, new { htmlAttributes = new { @class = "form-control", @id="test-complete", data_typeahead_select = "OnSelectedFunctionName" } })
+                    @Html.AutocompleteFor(model => model.Customer.Name, model => model.Customer.Id, "GetCustomers", "Rentals", false, new { htmlAttributes = new { @class = "form-control" } })
                 </div>
                 @Html.ValidationMessageFor(x => x.Customer.Name)
             </div>
@@ -45,23 +45,3 @@
 
     }
 </div>
-
-@section scripts
-{
-    <script>
-        $(document).ready(function () {
-
-            function OnSelectedFunctionName(event) {
-                //The default datum provided by this plugin has an id and name attribute
-                var obj$ = $(event.target);
-                var datum = {
-                    id: $('#' + obj$.data("autocomplete-id-field")).val(),
-                    value: event.target.value
-                };
-                //Handle the selection value here//
-            }
-
-
-        })
-    </script>
-}
