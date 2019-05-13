@@ -7,7 +7,7 @@
             },
             queryTokenizer: Bloodhound.tokenizers.whitespace,
             remote: {
-                wildcard: "%QUERY",            
+                wildcard: "%QUERY",
                 url: $(obj).data("autocomplete-url") + "?query=%QUERY",
                 filter: function (autos) {
                     // Map the remote source JSON array to a JavaScript object array
@@ -27,7 +27,7 @@
         $(obj).typeahead({ highlight: true, minLength: 0, hint: true }, {
             name: 'autos', displayKey: 'value', source: autos.ttAdapter()
         }).on('typeahead:selected', function (obj, datum) {
-            OnSelectedFunctionName(obj, datum);
+            onselected(obj, datum);
         });
 
         if ($(obj).hasClass("focus")) {
@@ -41,20 +41,21 @@
         $('#' + jQuery(obj.target).data("autocomplete-id-field")).val(datum.id.toString());
     }
 
-    function OnSelectedFunctionName(event, datum) {
+    function OnSelectedFunctionName(event) {
         //The default datum provided by this plugin has an id and name attribute
-        //var obj$ = $(event.target);
-        var test = {
-            id: datum.id.toString().toString(),
+        var obj$ = $(event.target);
+
+        var datum = {
+            id: $('#' + obj$.data("autocomplete-id-field")).val(),
             value: event.target.value
         };
         //Handle the selection value here//
-        console.log(test);
+        console.log(datum);
     }
 
     $('*[data-autocomplete-url]')
-            .each(function () {
-                autocompletewrapper($(this));
-            });
+        .each(function () {
+            autocompletewrapper($(this));
+        });
 })
 )
