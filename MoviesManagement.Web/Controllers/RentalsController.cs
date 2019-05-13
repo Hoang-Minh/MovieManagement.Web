@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using MoviesManagement.DataContract;
 using MoviesManagement.Management.Controllers;
-using MoviesManagement.Web.Models;
 
 namespace MoviesManagement.Web.Controllers
 {
@@ -22,7 +22,7 @@ namespace MoviesManagement.Web.Controllers
 
         public ActionResult GetCustomers(string query)
         {
-            List<Autocomplete> people = new List<Autocomplete>();
+            var people = new List<Autocomplete>();
 
             var customerManagement = new CustomerManagement();
             var customers = customerManagement.GetCustomersWithQuery(query);
@@ -38,6 +38,26 @@ namespace MoviesManagement.Web.Controllers
             }
 
             return Json(people, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GetMovies(string query)
+        {
+            var movies = new List<Autocomplete>();
+
+            var movieManagement = new MovieManagement();
+            var customers = movieManagement.GetMoviesWithQuery(query);
+
+            foreach (var customerDto in customers)
+            {
+                var movie = new Autocomplete
+                {
+                    Id = customerDto.Id,
+                    Name = customerDto.Name
+                };
+                movies.Add(movie);
+            }
+
+            return Json(movies, JsonRequestBehavior.AllowGet);
         }
     }
 }
