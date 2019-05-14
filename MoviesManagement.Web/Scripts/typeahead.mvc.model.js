@@ -1,6 +1,7 @@
-﻿$(document).ready($(function () {
+﻿$(document).ready(function () {
 
-    function autocompletewrapper(obj) {
+    function autocompletewrapper(obj, filter) {
+
         var autos = new Bloodhound({
             datumTokenizer: function (datum) {
                 return Bloodhound.tokenizers.whitespace(datum.value);
@@ -9,14 +10,8 @@
             remote: {
                 wildcard: "%QUERY",
                 url: $(obj).data("autocomplete-url") + "?query=%QUERY",
-                filter: function (autos) {
-                    // Map the remote source JSON array to a JavaScript object array
-                    return $.map(autos, function (auto) {
-                        return {
-                            value: auto.Name,
-                            id: auto.Id
-                        };
-                    });
+                filter: function(autos) {
+                    return $.map(autos, filter);
                 }
             },
             limit: 1000
@@ -41,21 +36,21 @@
         $('#' + jQuery(obj.target).data("autocomplete-id-field")).val(datum.id.toString());
     }
 
-    function OnSelectedFunctionName(event) {
-        //The default datum provided by this plugin has an id and name attribute
-        var obj$ = $(event.target);
-
-        var datum = {
-            id: $('#' + obj$.data("autocomplete-id-field")).val(),
-            value: event.target.value
+    function filterCustomers(auto) {
+        return {
+            value: auto.Name,
+            id: auto.Id,
+            birthDate: new Date(parseInt(auto.BirthDate.substr(6))).toLocaleDateString("en-US")
         };
-        //Handle the selection value here//
-        console.log(datum);
     }
 
-    $('*[data-autocomplete-url]')
-        .each(function () {
-            autocompletewrapper($(this));
-        });
+    function filterMovies(auto) {
+        return {
+            value: auto.Name,
+            id: auto.Id
+        };
+    }
+
+    autocompletewrapper($('input[data-autocomplete-url="/Rentals/GetCustomers"]'), filterCustomers);
+    autocompletewrapper($('input[data-autocomplete-url="/Rentals/GetMovies"]'), filterMovies);
 })
-)

@@ -32,7 +32,8 @@ namespace MoviesManagement.Web.Controllers
                 var person = new Autocomplete
                 {
                     Id = customerDto.Id,
-                    Name = customerDto.Name
+                    Name = customerDto.Name,
+                    BirthDate = customerDto.Birthdate
                 };
                 people.Add(person);
             }

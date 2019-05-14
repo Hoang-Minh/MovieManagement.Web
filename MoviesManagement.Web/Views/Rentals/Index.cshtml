@@ -28,7 +28,7 @@
             @Html.LabelFor(model => model.DateOfBirth, new { @class = "text-center control-label col-sm-12 col-md-2" })
             <div class="col-sm-12 col-md-10">
                 <span class="twitter-typeahead">
-                    @Html.TextBoxFor(x => x.DateOfBirth, new { @class = "typeahead tt-hint" })
+                    @Html.TextBoxFor(x => x.DateOfBirth, new { @class = "typeahead tt-hint", id="birthDate" })
                 </span>
             </div>
 
@@ -50,7 +50,12 @@
     <script>
         $(document).ready(function() {
             $("#test-name").on('typeahead:selected', function(event, result) {
-                console.log("bingo");
+                console.log(event);
+                console.log("result: " + result.id);
+                console.log("result: " + result.value);
+                console.log("result: " + result.birthDate);
+
+                $("#birthDate").val(result.birthDate)
             });
         })
     </script>
