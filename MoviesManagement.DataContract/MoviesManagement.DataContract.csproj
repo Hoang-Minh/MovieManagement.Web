@@ -46,6 +46,7 @@
     <Compile Include="GenreDto.cs" />
     <Compile Include="MembershipTypeDto.cs" />
     <Compile Include="MovieDto.cs" />
+    <Compile Include="RentalDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

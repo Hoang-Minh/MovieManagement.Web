@@ -15,7 +15,6 @@ namespace MoviesManagement.DataAccess
         public virtual DbSet<Genre> Genres { get; set; }
         public virtual DbSet<MembershipType> MembershipTypes { get; set; }
         public virtual DbSet<Movie> Movies { get; set; }
-
-        
+        public virtual DbSet<Rental> Rentals { get; set; }
     }
 }

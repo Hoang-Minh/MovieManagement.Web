@@ -16,8 +16,7 @@ namespace MoviesManagement.Web.Controllers
         [HttpPost]
         public ActionResult Save()
         {
-
-            return View();
+            return View("Index");
         }
 
         public ActionResult GetCustomers(string query)

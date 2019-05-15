@@ -44,6 +44,7 @@
             </div>
         </div>
         @Html.AntiForgeryToken()
+        @Html.HiddenFor(x => x.Customer.Id)
         <div class="row" type="submit">
             <div class="col-sm-12 col-md-offset-3">
                 <button class="btn btn-primary btn-lg">Submit</button>
@@ -56,6 +57,9 @@
     @Scripts.Render("~/bundles/jqueryval")
     <script>
         $(document).ready(function () {
+            $("#customer-name").attr("data-rule-validCustomer", "true");
+            $("#movie-name").attr("data-rule-validMovie", "true");
+
             $("#customer-name").on('typeahead:selected', function (event, result) {
                 $("#birthDate").val(result.birthDate);
             });

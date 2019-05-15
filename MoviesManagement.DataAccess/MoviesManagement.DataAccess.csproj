@@ -48,9 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Domain\Rental.cs" />
     <Compile Include="Core\IUnitOfWork.cs" />
     <Compile Include="Core\Repositories\ICustomerRepository.cs" />
     <Compile Include="Core\Repositories\IMovieRepository.cs" />
+    <Compile Include="Core\Repositories\IRentalRepository.cs" />
     <Compile Include="Core\Repositories\IRepository.cs" />
     <Compile Include="Migrations\201905060702240_InitModels.cs" />
     <Compile Include="Migrations\201905060702240_InitModels.Designer.cs">
@@ -76,6 +78,10 @@
     <Compile Include="Migrations\201905111822441_PopulateNumberInStock.Designer.cs">
       <DependentUpon>201905111822441_PopulateNumberInStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905150412236_AddRentalEntities.cs" />
+    <Compile Include="Migrations\201905150412236_AddRentalEntities.Designer.cs">
+      <DependentUpon>201905150412236_AddRentalEntities.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Core\Domain\Customer.cs" />
     <Compile Include="Core\Domain\Genre.cs" />
@@ -83,6 +89,7 @@
     <Compile Include="Core\Domain\Movie.cs" />
     <Compile Include="Persistence\Repositories\CustomerRepository.cs" />
     <Compile Include="Persistence\Repositories\MovieRepository.cs" />
+    <Compile Include="Persistence\Repositories\RentalRepository.cs" />
     <Compile Include="PlutoContext.cs" />
     <Compile Include="Persistence\Repositories\Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -120,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905111822441_PopulateNumberInStock.resx">
       <DependentUpon>201905111822441_PopulateNumberInStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905150412236_AddRentalEntities.resx">
+      <DependentUpon>201905150412236_AddRentalEntities.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
