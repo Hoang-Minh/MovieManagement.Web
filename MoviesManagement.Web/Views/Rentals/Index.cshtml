@@ -16,19 +16,17 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.CustomerName, htmlAttributes: new { @class = "text-center control-label col-sm-12 col-md-2" })
                 <div class="col-sm-12 col-md-10">
-                    @Html.AutocompleteFor(model => model.Customer.Name, model => model.Customer.Id, "GetCustomers", "Rentals", false, new { htmlAttributes = new { @class = "form-control", id="customer-name" } })
+                    @Html.AutocompleteFor(model => model.Customer.Name, model => model.Customer.Id, "GetCustomers", "Rentals", false, new { htmlAttributes = new { @class = "form-control", id = "customer-name" } })
                 </div>
                 @Html.ValidationMessageFor(x => x.Customer.Name)
             </div>
         </div>
 
-
         <div class="row">
-
             @Html.LabelFor(model => model.DateOfBirth, new { @class = "text-center control-label col-sm-12 col-md-2" })
             <div class="col-sm-12 col-md-10">
                 <span class="twitter-typeahead">
-                    @Html.TextBoxFor(x => x.DateOfBirth, new { @class = "typeahead tt-hint", id="birthDate" })
+                    @Html.TextBoxFor(x => x.DateOfBirth, new { @class = "typeahead tt-hint", id = "birthDate" })
                 </span>
             </div>
 
@@ -38,19 +36,35 @@
         <div class="row">
             @Html.LabelFor(model => model.MovieName, htmlAttributes: new { @class = "text-center control-label col-sm-12 col-md-2" })
             <div class="col-sm-12 col-md-10">
-                @Html.AutocompleteFor(model => model.Movie.Name, model => model.Movie.Id, "GetMovies", "Rentals", false)
+                @Html.AutocompleteFor(model => model.Movie.Name, model => model.Movie.Id, "GetMovies", "Rentals", false, new { htmlAttributes = new { @class = "form-control", id = "movie-name" } })
             </div>
             @Html.ValidationMessageFor(x => x.Movie.Name)
         </div>
-
+        <div class="row">
+            <div class="col-sm-12 col-md-offset-2 col-md-4">
+                <ul class="list-group"></ul>
+            </div>
+        </div>
+        <div class="row" type="submit">
+            <div class="col-sm-12 col-md-offset-3">
+                <button class="btn btn-primary btn-lg">Submit</button>
+            </div>
+        </div>
     }
 </div>
 @section scripts
 {
+    @Scripts.Render("~/bundles/jqueryval")
     <script>
-        $(document).ready(function() {
-            $("#customer-name").on('typeahead:selected', function(event, result) {
+        $(document).ready(function () {
+            $("#customer-name").on('typeahead:selected', function (event, result) {
                 $("#birthDate").val(result.birthDate);
+            });
+
+            $("#movie-name").on('typeahead:selected', function (event, result) {
+                let value = result.value;
+                $(".list-group").append('<li class="list-group-item list-group-item-success">' + value + '</li>');
+                $("#movie-name").typeahead("val", "");
             });
         })
     </script>
