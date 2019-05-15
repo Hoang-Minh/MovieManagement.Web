@@ -12,39 +12,38 @@
     @using (Html.BeginForm("Save", "Rentals"))
     {
         @Html.ValidationSummary(true, "Please correct those following errors")
-        <div class="row">
-            <div class="form-group">
-                @Html.LabelFor(model => model.CustomerName, htmlAttributes: new { @class = "text-center control-label col-sm-12 col-md-2" })
-                <div class="col-sm-12 col-md-10">
-                    @Html.AutocompleteFor(model => model.Customer.Name, model => model.Customer.Id, "GetCustomers", "Rentals", false, new { htmlAttributes = new { @class = "form-control", id = "customer-name" } })
-                </div>
-                @Html.ValidationMessageFor(x => x.Customer.Name)
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerName, htmlAttributes: new { @class = "text-center control-label col-sm-12 col-md-2" })
+            <div class="col-sm-12 col-md-10">
+                @Html.AutocompleteFor(model => model.CustomerName, model => model.Customer.Id, "GetCustomers", "Rentals", false, new { htmlAttributes = new { @class = "form-control", id = "customer-name" } })
+                @Html.ValidationMessageFor(x => x.CustomerName)
             </div>
         </div>
 
-        <div class="row">
+        <div class="form-group">
             @Html.LabelFor(model => model.DateOfBirth, new { @class = "text-center control-label col-sm-12 col-md-2" })
             <div class="col-sm-12 col-md-10">
                 <span class="twitter-typeahead">
                     @Html.TextBoxFor(x => x.DateOfBirth, new { @class = "typeahead tt-hint", id = "birthDate" })
                 </span>
             </div>
-
-            @Html.ValidationMessageFor(x => x.Customer.Birthdate)
         </div>
 
-        <div class="row">
+        <div class="form-group">
             @Html.LabelFor(model => model.MovieName, htmlAttributes: new { @class = "text-center control-label col-sm-12 col-md-2" })
             <div class="col-sm-12 col-md-10">
-                @Html.AutocompleteFor(model => model.Movie.Name, model => model.Movie.Id, "GetMovies", "Rentals", false, new { htmlAttributes = new { @class = "form-control", id = "movie-name" } })
+                @Html.AutocompleteFor(model => model.MovieName, model => model.Movie.Id, "GetMovies", "Rentals", false, new { htmlAttributes = new { @class = "form-control", id = "movie-name" } })
+                @Html.ValidationMessageFor(x => x.MovieName)
             </div>
-            @Html.ValidationMessageFor(x => x.Movie.Name)
         </div>
+
+        
         <div class="row">
             <div class="col-sm-12 col-md-offset-2 col-md-4">
                 <ul class="list-group"></ul>
             </div>
         </div>
+        @Html.AntiForgeryToken()
         <div class="row" type="submit">
             <div class="col-sm-12 col-md-offset-3">
                 <button class="btn btn-primary btn-lg">Submit</button>

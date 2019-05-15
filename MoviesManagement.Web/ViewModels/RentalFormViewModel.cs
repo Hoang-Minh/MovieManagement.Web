@@ -9,9 +9,11 @@ namespace MoviesManagement.Web.ViewModels
         public CustomerDto Customer { get; set; }
         public MovieDto Movie { get; set; }
 
+        [Required(ErrorMessage = "Please enter a customer's name")]
         [Display(Name = "Customer's Name")]
         public string CustomerName { get; set; }
 
+        [Required(ErrorMessage = "Please enter a movie's title")]
         [Display(Name = "Movie's Title")]
         public string MovieName { get; set; }
 
